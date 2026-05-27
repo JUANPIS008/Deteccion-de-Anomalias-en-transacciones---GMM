@@ -33,3 +33,29 @@ Funcionamiento general:
 - El modelo identifica diferentes patrones (clusters).
 - Para cada nueva transacción, se calcula su probabilidad de pertenencia.
 - Si la probabilidad es muy baja → se marca como anomalía. 
+
+## Seleccion del dataset
+Se hizo la seleccion del dataset en la plataforma de Kaggle ya en esta se encuentran datasets que ya estan listos para usar y que su vez son muy usados en investigacion.
+
+### Ventajas
+- Datos limpios
+- Comunidad activa
+- Notebooks con ejemplos
+- Acceso gratuito
+- Portafolios prefesional
+
+### Desventajas
+- Falta de contexto real
+- Datos sintéticos o simulados
+- Problemas de calidad
+- Sobreajuste a benchmarks
+
+Se seleccionó el dataset “Credit Card Fraud” disponible en Kaggle, publicado por Incribo. El conjunto de datos contiene aproximadamente 8,000 registros y cerca de 20 variables relacionadas con transacciones financieras, orientadas al análisis y detección de fraude en tarjetas de crédito.
+
+## Porque este dataset?
+La elección de este dataset se realizó debido a que presenta características adecuadas para el desarrollo de un modelo de detección de anomalías mediante Gaussian Mixture Models (GMM) en un entorno de aprendizaje no supervisado.
+
+Las razones fueron las siguientes:
+1. Relación directa con el problema de investigación
+2. Adecuado para aprendizaje no supervisado
+3. Variables útiles para modelado estadístico
