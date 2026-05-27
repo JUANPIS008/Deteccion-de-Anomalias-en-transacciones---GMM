@@ -59,3 +59,21 @@ Las razones fueron las siguientes:
 1. Relación directa con el problema de investigación
 2. Adecuado para aprendizaje no supervisado
 3. Variables útiles para modelado estadístico
+
+
+
+
+# Selección y justificación del servicio de despliegue en la nube
+
+## Contexto de la decisión
+Para el despliegue de esta aplicación la cuál esta basada en la detección de anomalías bancarias con GMM, se hizo un breve estudio e investigación sobre las seis plataformas referenciadas en los lineamentos de la actividad propuesta por el profesor; dichas plataformas son las siguientes: Cloud, Render, Heroku, Google Cloud Run, AWS, Streamlit y Azure. El equipo se basó en tres criterios principales: costo cero sin la necesidad anclar una tarjeta de crédito, compatibilidad directa con el stack tecnólogico del proyecto (Streamlit + scikit-learn), y sinmplicidad de configuración para un equipo de desarrollo universitario.
+
+# Servicio Principal-Streamlit Cloud
+## ¿Qué es?
+Streamlit Cloud es una plataforma de despliegue administrada y gratuita, fué creada por los mismo desarrolladore del framework Streamlit. Su diseño es basado especificamente para el alojamiento de aplicaciones construidas con esta libreria, esto favorece la compatibilidad entre el entorno de desarrollo y el entorno de producción.
+## ¿Cómo funciona?
+Streamlit Cloud se logra conectar directamente a un repositorio público en GitHub. En el momento en el cuál se configura el despliegue, la plataforma leerá el archivo requirements.txt del repositorio, este instala automáticamente todas las dependencias necesarias en un entorno virtual aislado, levantando la aplicación enfocándose en el archivo principal indicado.
+Cada vez que se realiza un nuevo git push **git push** a la rama principal, la plataforma detectará el cambio y redespliega la aplicación de manera automática sin intervención manual. 
+## ¿Cómo se usa en este proyecto?
+## Justificación de elección
+Se eligió Stream Cloud como plataforma principal debido que como equipo tuvimos en cuenta el hecho de que es gratuita y no requiere anclar niguna tarjeta para poder obtener sus servicios, a diferencia de de AWS, Azure y Google Cloud Platform plataformas las cuáles exigen tarjeta para poder usar los tier gratuitos. Al estar diseñada exclusivamente para apliaciones Streamlit, no requiere de un archivo de configuración adicional como lo es Procfile (Heroku) o Dockerfile (Google Cloud Platform), reduciendo así la complejidad operativa. La integración nativa con GitHub permite que se pueda mantener un flujo de trabajo continuo donde cada mejora que se le haga al código se verá reflejado automáticamente. 
