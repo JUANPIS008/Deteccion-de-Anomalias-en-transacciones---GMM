@@ -1,15 +1,14 @@
 import streamlit as st
-
+ 
 pages = {
-    "Menu Principal": [
-        st.Page("principal.py", title="Pagina Principal"),
+    "Sistema": [
+        st.Page("principal.py", title="Inicio"),
     ],
-
-    "Datos": [
-        st.Page("datos.py", title="Análisis de Datos")
-    ]
-
+    "Analisis": [
+        st.Page("datos.py", title="Exploracion de Datos"),
+        st.Page("prediccion.py", title="Detector de Fraude"),
+    ],
 }
-
+ 
 pg = st.navigation(pages)
 pg.run()
