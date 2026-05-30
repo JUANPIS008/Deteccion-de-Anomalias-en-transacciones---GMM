@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Estilos
+# ── Estilos ───────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
@@ -79,9 +79,9 @@ h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; color: #e6edf3; }
 }
 .score-sub { font-size: 0.72rem; color: #6e7681; margin-top: 0.2rem; }
 
-.risk-high  { color: #f0883e; }
-.risk-med   { color: #d29922; }
-.risk-low   { color: #3fb950; }
+.risk-high { color: #f0883e; }
+.risk-med  { color: #d29922; }
+.risk-low  { color: #3fb950; }
 
 .info-note {
     background: #111827; border: 1px solid #1e2d40;
@@ -89,8 +89,110 @@ h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; color: #e6edf3; }
     font-size: 0.82rem; color: #6e7681; line-height: 1.65;
 }
 
-.stSelectbox label, .stNumberInput label, .stDateInput label, .stTimeInput label {
-    color: #8b949e !important; font-size: 0.85rem;
+/* Manual de usuario */
+.manual-container {
+    background: #111827;
+    border: 1px solid #1e2d40;
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 0.5rem;
+}
+.manual-intro {
+    font-size: 0.88rem;
+    color: #8b949e;
+    line-height: 1.75;
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid #1e2d40;
+    padding-bottom: 1.2rem;
+}
+.manual-step {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #161b27;
+}
+.manual-step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #58a6ff;
+    background: #0b0f19;
+    border: 1px solid #21334a;
+    border-radius: 3px;
+    padding: 2px 8px;
+    white-space: nowrap;
+    margin-top: 2px;
+    min-width: 28px;
+    text-align: center;
+}
+.step-content {}
+.step-field {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #e6edf3;
+    margin-bottom: 0.3rem;
+}
+.step-desc {
+    font-size: 0.82rem;
+    color: #6e7681;
+    line-height: 1.65;
+}
+.step-example {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: #3fb950;
+    background: #0b1a0f;
+    border: 1px solid #1e3a1e;
+    border-radius: 3px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-top: 0.4rem;
+}
+.step-warning {
+    font-size: 0.78rem;
+    color: #d29922;
+    background: #1a1500;
+    border: 1px solid #3a2e00;
+    border-radius: 3px;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-top: 0.4rem;
+}
+.manual-result-block {
+    background: #0b0f19;
+    border: 1px solid #1e2d40;
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-top: 0.8rem;
+}
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #161b27;
+    gap: 1rem;
+}
+.result-row:last-child { border-bottom: none; }
+.result-row-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: #58a6ff;
+    white-space: nowrap;
+}
+.result-row-desc {
+    font-size: 0.8rem;
+    color: #6e7681;
+    line-height: 1.55;
+    text-align: right;
 }
 
 footer { display: none; }
@@ -131,34 +233,189 @@ umbral_manual = st.sidebar.number_input(
         "  -16.10  Agresivo    — mas alertas"
     ),
 )
-
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Variables del modelo**")
 for col in FEATURE_COLS:
     st.sidebar.code(col, language=None)
-
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 <div style="font-size:0.78rem; color:#6e7681; line-height:1.65;">
 El modelo GMM fue entrenado exclusivamente con transacciones clasificadas como normales.
-Calcula la densidad de probabilidad logaritmica de cada nueva transaccion bajo esa
-distribucion aprendida. Un score muy bajo indica que la transaccion es estadisticamente
+Calcula la densidad de probabilidad logarítmica de cada nueva transacción bajo esa
+distribución aprendida. Un score muy bajo indica que la transacción es estadísticamente
 improbable dentro del comportamiento normal.
 </div>
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<div class="page-tag">Modulo de Prediccion</div>', unsafe_allow_html=True)
-st.markdown('<div class="page-title">Analisis de Transaccion</div>', unsafe_allow_html=True)
+st.markdown('<div class="page-tag">Sección de Predicción</div>', unsafe_allow_html=True)
+st.markdown('<div class="page-title">Análisis de Transacción</div>', unsafe_allow_html=True)
 st.markdown("""
 <p class="page-sub">
-Ingresa los datos de una transaccion financiera para determinar si su comportamiento
-es consistente con el patron normal aprendido por el modelo, o si presenta
-caracteristicas estadisticamente anomalas que sugieren actividad fraudulenta.
+Ingresa los datos de una transacción financiera para determinar si su comportamiento
+es consistente con el patrón normal aprendido por el modelo, o si presenta
+características estadísticamente anómalas que sugieren actividad fraudulenta.
 </p>
 """, unsafe_allow_html=True)
 
+# Manual de usuario
+with st.expander("Como completar el formulario correctamente"):
+
+    st.caption(
+        "Este proyecto analiza una transacción financiera individual y determina si su comportamiento "
+        "es normal o anómalo según el modelo de detección entrenado. Para obtener un resultado "
+        "correcto, cada campo debe completarse con los valores exactos del comprobante o registro "
+        "de la transacción que se desea evaluar."
+    )
+
+    st.markdown("---")
+
+    # Paso 1
+    st.markdown("**1. Monto de la transacción**")
+    st.write(
+        "Ingresa el valor monetario total de la transacción en la moneda en que fue registrada "
+        "originalmente. Usa punto como separador decimal. No incluyas símbolos de moneda ni "
+        "separadores de miles. El campo acepta valores entre 0.00 y 100,000.00."
+    )
+    st.code("Correcto:   1250.75\nIncorrecto: $1.250,75", language=None)
+
+    st.markdown("---")
+
+    # Paso 2
+    st.markdown("**2. Merchant Category Code (MCC)**")
+    st.write(
+        "Selecciona la categoría del comercio donde se realizó la transacción. El MCC es un código "
+        "de 4 dígitos asignado por la red de pagos al tipo de negocio. Si no conoces el MCC exacto "
+        "del comercio, selecciona la categoría que más se aproxime al giro del negocio."
+    )
+    st.code(
+        "5411 — Supermercados y tiendas de abarrotes\n"
+        "5812 — Restaurantes y servicios de comida\n"
+        "5999 — Comercio minorista general\n"
+        "4111 — Transporte urbano y servicios de movilidad\n"
+        "6011 — Cajeros automaticos (ATM) y retiros en efectivo\n"
+        "7995 — Casinos, apuestas y juegos de azar\n"
+        "6051 — Casas de cambio de moneda extranjera",
+        language=None
+    )
+    st.warning(
+        "Los códigos 6011, 7995 y 6051 corresponden a categorías de alto riesgo "
+        "y pueden generar puntajes de anomalía más elevados por naturaleza.",
+        icon=None
+    )
+
+    st.markdown("---")
+
+    # Paso 3
+    st.markdown("**3. Fecha de la transacción**")
+    st.write(
+        "Selecciona la fecha exacta en que se realizó la transacción usando el selector de calendario. "
+        "La fecha debe corresponder al momento en que el cargo fue generado, no a la fecha de corte "
+        "o de estado de cuenta. El sistema acepta fechas pasadas y la fecha actual."
+    )
+    st.code("Formato: DD/MM/AAAA   |   Ejemplo: 15/03/2024", language=None)
+
+    st.markdown("---")
+
+    # Paso 4
+    st.markdown("**4. Hora de la transacción**")
+    st.write(
+        "Ingresa la hora exacta de la transacción en formato de 24 horas. Este dato es relevante "
+        "para el modelo porque el horario en que ocurre una transacción forma parte de su patrón "
+        "de comportamiento. Las transacciones en horas inusuales como madrugada pueden recibir "
+        "puntajes de anomalía más altos."
+    )
+    st.code(
+        "14:35 — Tarde (horario comercial normal)\n"
+        "03:12 — Madrugada (puede elevar el puntaje de riesgo)",
+        language=None
+    )
+
+    st.markdown("---")
+
+    # Paso 5
+    st.markdown("**5. Código de respuesta del procesador**")
+    st.write(
+        "Selecciona el código que el procesador de pagos devolvió al momento de la transacción. "
+        "Indica si fue aprobada, rechazada o si ocurrió algún tipo de error. Generalmente aparece "
+        "en el comprobante de pago o en el registro del sistema de punto de venta."
+    )
+    st.code(
+        "0  — Aprobada: la transacción fue procesada exitosamente\n"
+        "1  — Rechazada por fondos insuficientes\n"
+        "5  — Rechazada por el banco emisor sin causa especificada\n"
+        "7  — Fraude confirmado por el banco emisor\n"
+        "10 — Tarjeta reportada como robada o extraviada\n"
+        "11 — Cuenta bloqueada por la entidad financiera",
+        language=None
+    )
+    st.warning(
+        "Los códigos 7, 10 y 11 indican situaciones de alto riesgo confirmadas por la entidad "
+        "financiera y casi siempre produciran una alerta de fraude.",
+        icon=None
+    )
+
+    st.markdown("---")
+
+    # Paso 6
+    st.markdown("**6. Interpretación de los resultados**")
+    st.write(
+        "Una vez enviado el formulario, el sistema muestra tres indicadores y una clasificación final."
+    )
+
+    r1, r2 = st.columns(2)
+    with r1:
+        st.markdown("**Log-score GMM**")
+        st.caption(
+            "Valor negativo calculado por el modelo. Cuanto mas cercano a cero, mas normal "
+            "es la transacción. Cuanto mas bajo (mas negativo), mas anómala es respecto al "
+            "comportamiento aprendido."
+        )
+        st.markdown("**Umbral configurado**")
+        st.caption(
+            "Valor de corte del detector. Si el log-score cae por debajo de este numero, "
+            "la transacción se clasifica como fraude. Se ajusta desde el panel lateral."
+        )
+    with r2:
+        st.markdown("**Nivel de riesgo**")
+        st.caption(
+            "BAJO: transacción dentro del rango normal.\n"
+            "MEDIO: ligeramente por debajo del umbral, se recomienda revision.\n"
+            "ALTO: anomalia significativa detectada."
+        )
+        st.markdown("**Diferencia vs umbral**")
+        st.caption(
+            "Valor positivo: score por encima del umbral (normal). "
+            "Valor negativo: score por debajo del umbral (potencial fraude)."
+        )
+
+    st.markdown("---")
+
+    # Paso 7
+    st.markdown("**7. Ajuste del umbral de sensibilidad**")
+    st.write(
+        "El umbral de log-score se puede modificar desde el panel lateral. Un umbral mas alto "
+        "detecta mas transacciones como fraude pero genera mas falsas alarmas. Un umbral mas bajo "
+        "es mas conservador y solo alerta ante anomalias severas. El valor por defecto (-16.46) "
+        "corresponde al percentil 5% calibrado con el dataset de entrenamiento."
+    )
+    st.code(
+        "-16.88 — Conservador: solo anomalias muy evidentes\n"
+        "-16.46 — Equilibrado: configuracion recomendada\n"
+        "-16.10 — Agresivo: detecta mas casos, mas falsas alarmas",
+        language=None
+    )
+
+with st.expander("Tener en cuenta antes de usar el detector"):
+
+    st.write(
+        "El modelo fue entrenado con transacciones entre 2020 y 2024. "
+        "Fechas fuera de ese rango seran detectadas como anomalias "
+        "independientemente de los demas valores."
+    )
+
 # Formulario
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">Datos de la Transaccion</div>', unsafe_allow_html=True)
 
 with st.form("form_prediccion"):
@@ -173,7 +430,7 @@ with st.form("form_prediccion"):
             value=150.0,
             step=0.01,
             format="%.2f",
-            help="Valor monetario de la transaccion en la moneda original del registro."
+            help="Valor monetario de la transaccion. Usa punto como separador decimal. Ejemplo: 1250.75"
         )
 
         mcc = st.selectbox(
@@ -188,23 +445,20 @@ with st.form("form_prediccion"):
                 7995: "7995 — Casinos y apuestas",
                 6051: "6051 — Casas de cambio",
             }[x],
-            help=(
-                "Codigo numerico que identifica la categoria del comercio donde "
-                "se realizo la transaccion, segun el estandar ISO 18245."
-            )
+            help="Categoria del comercio donde se realizo la transaccion segun el estandar ISO 18245."
         )
 
     with col2:
         fecha = st.date_input(
             "Fecha de la transaccion",
             value=datetime.now().date(),
-            help="Fecha en que se realizo la transaccion."
+            help="Fecha exacta en que se genero el cargo. No usar fecha de corte o de estado de cuenta."
         )
 
         hora = st.time_input(
             "Hora de la transaccion",
             value=datetime.now().time(),
-            help="Hora exacta de la transaccion en formato 24h."
+            help="Hora en formato 24h. Las transacciones en madrugada pueden generar puntajes de riesgo mas altos."
         )
 
         response_code = st.selectbox(
@@ -225,10 +479,7 @@ with st.form("form_prediccion"):
                 11: "11 — Cuenta bloqueada",
                 12: "12 — Transaccion duplicada",
             }[x],
-            help=(
-                "Codigo devuelto por el procesador de pagos al momento de la transaccion. "
-                "Los codigos distintos de 0 indican alguna condicion de error o rechazo."
-            )
+            help="Codigo devuelto por el procesador al momento de la transaccion. Aparece en el comprobante de pago."
         )
 
     submitted = st.form_submit_button(
@@ -305,12 +556,10 @@ if submitted:
             </div>
             """, unsafe_allow_html=True)
 
-        # Barra de riesgo
         score_norm = min(max((log_score + 40) / 40, 0.0), 1.0)
         st.progress(score_norm)
-        st.caption("Barra de riesgo: izquierda = mayor anomalia, derecha = mayor normalidad")
+        st.caption("Barra de riesgo: izquierda = mayor anomalia — derecha = mayor normalidad")
 
-        # Clasificacion final
         if log_score < umbral_manual:
             st.markdown(f"""
             <div class="result-card-fraud">
@@ -343,6 +592,15 @@ if submitted:
                 X_input.T.rename(columns={0: "Valor escalado"}),
                 use_container_width=True
             )
+
+        st.markdown("""
+        <div class="info-note">
+            Nota tecnica: los valores de Time y Amount son normalizados mediante StandardScaler
+            antes de ser procesados por el modelo. Los valores de MCC y Transaction Response Code
+            se utilizan en su escala original. El log-score representa el logaritmo de la densidad
+            de probabilidad de la transaccion bajo el Gaussian Mixture Model entrenado.
+        </div>
+        """, unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"Error durante la prediccion: {e}")

@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Sistema de Deteccion de Fraude", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Sistema de Detección de Fraude", layout="wide", initial_sidebar_state="collapsed")
 
 # Estilos globales
 st.markdown("""
@@ -208,13 +208,13 @@ footer { display: none; }
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<div class="hero-tag">Sistema de Deteccion de Anomalias</div>', unsafe_allow_html=True)
-st.markdown('<div class="hero-title">Deteccion de Fraude<br>en Transacciones Financieras</div>', unsafe_allow_html=True)
+st.markdown('<div class="hero-tag">Sistema de detección de Anomalías</div>', unsafe_allow_html=True)
+st.markdown('<div class="hero-title">Detección de Fraude<br>en Transacciones Financieras</div>', unsafe_allow_html=True)
 st.markdown("""
 <p class="hero-sub">
-Sistema basado en aprendizaje automatico no supervisado que identifica transacciones
-financieras anomalas en tiempo real. Utiliza Gaussian Mixture Models (GMM) entrenados
-exclusivamente con comportamiento normal para detectar desviaciones estadisticas
+Sistema basado en aprendizaje automático no supervisado que identifica transacciones
+financieras anomalías en tiempo real. Utiliza Gaussian Mixture Models (GMM) entrenados
+exclusivamente con comportamiento normal para detectar desviaciones estadísticas
 significativas que pueden indicar actividad fraudulenta.
 </p>
 """, unsafe_allow_html=True)
@@ -282,41 +282,41 @@ with col_prob:
     <div class="problem-block">
         <div class="problem-title">Costo Asimetrico de los Errores</div>
         <div class="problem-text">
-            No detectar un fraude (falso negativo) tiene un costo economico y reputacional
-            mucho mayor que bloquear una transaccion legitima (falso positivo).
-            Esta asimetria exige un enfoque que priorice el recall sobre la precision.
+            No detectar un fraude (falso negativo) tiene un costo económico y reputacional
+            mucho mayor que bloquear una transacción legitima (falso positivo).
+            Esta asimetría exige un enfoque que priorice el recall sobre la precision.
         </div>
     </div>
     <div class="problem-block">
-        <div class="problem-title">Evolucion Constante del Fraude</div>
+        <div class="problem-title">Evolución Constante del Fraude</div>
         <div class="problem-text">
             Los patrones de fraude cambian continuamente. Un modelo supervisado
-            entrenado con fraudes historicos puede quedar obsoleto rapidamente
-            ante tecnicas nuevas que no han sido vistas anteriormente.
+            entrenado con fraudes históricos puede quedar obsoleto rápidamente
+            ante técnicas nuevas que no han sido vistas anteriormente.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
 with col_sol:
-    st.markdown('<div class="section-title">La Solucion: GMM</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">La solución: GMM</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div class="solution-block">
         <div class="solution-title">Aprendizaje No Supervisado</div>
         <div class="solution-text">
             El modelo se entrena exclusivamente con transacciones normales, aprendiendo
-            su distribucion estadistica. No requiere ejemplos de fraude etiquetados
+            su distribución estadística. No requiere ejemplos de fraude etiquetados
             para funcionar, lo que lo hace aplicable incluso cuando el fraude es raro
-            o no esta disponible en el conjunto de entrenamiento.
+            o no está disponible en el conjunto de entrenamiento.
         </div>
     </div>
     <div class="solution-block">
-        <div class="solution-title">Deteccion por Densidad</div>
+        <div class="solution-title">Detección por Densidad</div>
         <div class="solution-text">
-            El GMM asigna a cada transaccion un log-score de densidad de probabilidad.
-            Las transacciones que caen en regiones de baja densidad bajo la distribucion
-            aprendida — es decir, que son estadisticamente improbables dado el
-            comportamiento normal — se clasifican como anomalias.
+            El GMM asigna a cada transacción un log-score de densidad de probabilidad.
+            Las transacciones que caen en regiones de baja densidad bajo la distribución
+            aprendida — es decir, que son estadísticamente improbables dado el
+            comportamiento normal — se clasifican como anomalías.
         </div>
     </div>
     <div class="solution-block">
@@ -324,7 +324,7 @@ with col_sol:
         <div class="solution-text">
             El nivel de sensibilidad del detector se ajusta mediante un umbral
             de log-score calibrado con los datos reales del sistema. Esto permite
-            balancear precision y recall segun el contexto operativo sin necesidad
+            balancear precision y recall según el contexto operativo sin necesidad
             de reentrenar el modelo.
         </div>
     </div>
@@ -332,14 +332,14 @@ with col_sol:
 
 # Metricas del modelo
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
-st.markdown('<div class="section-title">Estado del Modelo en Produccion</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Estado del Modelo en Producción</div>', unsafe_allow_html=True)
 
 mc1, mc2 = st.columns([1, 1], gap="large")
 
 with mc1:
     st.markdown("""
     <div class="stat-card">
-        <div class="stat-label">Metricas de Evaluacion (Test Set)</div>
+        <div class="stat-label">Métricas de Evaluación (Test Set)</div>
         <br>
         <div style="display:flex; flex-direction:column; gap:0.6rem;">
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e2d40; padding-bottom:0.6rem;">
@@ -365,18 +365,18 @@ with mc1:
 with mc2:
     st.markdown("""
     <div class="stat-card">
-        <div class="stat-label">Interpretacion de las Metricas</div>
+        <div class="stat-label">Interpretación de las Métricas</div>
         <br>
         <div class="problem-text" style="font-size:0.85rem; line-height:1.75;">
             El <strong style="color:#3fb950;">recall del 96%</strong> indica que el modelo identifica
             correctamente casi la totalidad de los fraudes reales presentes en el conjunto de prueba.
-            En seguridad financiera, esta es la metrica critica: es preferible generar alertas de mas
+            En seguridad financiera, esta es la métrica crítica: es preferible generar alertas de mas
             que dejar pasar transacciones fraudulentas sin detectar.
             <br><br>
             La <strong style="color:#f0883e;">precision del 57%</strong> refleja una tasa de falsos
-            positivos moderada, atribuible a que el dataset de entrenamiento es sintetico y las
-            distribuciones de ambas clases son estadisticamente similares. En produccion con datos
-            reales, esta metrica mejora significativamente.
+            positivos moderada, atribuible a que el dataset de entrenamiento es sintético y las
+            distribuciones de ambas clases son estadísticamente similares. En producción con datos
+            reales, esta métrica mejora significativamente.
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -385,6 +385,6 @@ with mc2:
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
 st.markdown("""
 <p style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:#3d444d; text-align:center; letter-spacing:0.1em;">
-SISTEMA DE DETECCION DE ANOMALIAS FINANCIERAS &mdash; GAUSSIAN MIXTURE MODEL
+SISTEMA DE DETECCIÓN DE ANOMALÍAS FINANCIERAS &mdash; GAUSSIAN MIXTURE MODEL
 </p>
 """, unsafe_allow_html=True)

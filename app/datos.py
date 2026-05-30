@@ -6,7 +6,7 @@ import matplotlib.ticker as mticker
 import seaborn as sns
 
 st.set_page_config(
-    page_title="Exploracion de Datos",
+    page_title="Exploración de Datos",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -144,17 +144,17 @@ def apply_style(ax, title=""):
 
 # Header 
 st.markdown('<div class="page-tag">Modulo de Analisis</div>', unsafe_allow_html=True)
-st.markdown('<div class="page-title">Exploracion del Dataset</div>', unsafe_allow_html=True)
+st.markdown('<div class="page-title">Exploración del Dataset</div>', unsafe_allow_html=True)
 st.markdown("""
 <p class="page-sub">
-Analisis descriptivo y visual del conjunto de datos de transacciones financieras.
-Esta seccion permite comprender la distribucion de las variables, el nivel de desbalance
-entre clases y el comportamiento estadistico de las features utilizadas por el modelo GMM.
+Análisis descriptivo y visual del conjunto de datos de transacciones financieras.
+Esta sección permite comprender la distribución de las variables, el nivel de desbalance
+entre clases y el comportamiento estadístico de las features utilizadas por el modelo GMM.
 </p>
 """, unsafe_allow_html=True)
 
 # KPIs
-st.markdown('<div class="section-title">Estadisticas Generales</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Estadísticas Generales</div>', unsafe_allow_html=True)
 
 c1, c2, c3, c4, c5 = st.columns(5)
 kpis = [
@@ -177,7 +177,7 @@ for col, (label, value, desc) in zip([c1, c2, c3, c4, c5], kpis):
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
 # ── Graficos fila 1 ───────────────────────────────────────────────────────────
-st.markdown('<div class="section-title">Distribucion por Clase</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Distribución por Clase</div>', unsafe_allow_html=True)
 
 g1, g2 = st.columns(2, gap="large")
 
@@ -200,9 +200,9 @@ with g1:
     st.markdown("""
     <div class="insight-box">
         El dataset presenta un balance casi perfecto entre clases (50/50), lo cual es inusual
-        en datasets de fraude real. En produccion, el fraude suele representar menos del 1%.
-        Esta proporcion igual afecta negativamente al GMM, que asume que el comportamiento
-        anormal es raro en comparacion con el normal.
+        en datasets de fraude real. En producción, el fraude suele representar menos del 1%.
+        Esta proporción igual afecta negativamente al GMM, que asume que el comportamiento
+        anormal es raro en comparación con el normal.
     </div>
     """, unsafe_allow_html=True)
 
@@ -215,24 +215,24 @@ with g2:
     ax.legend(facecolor=CARD_BG, edgecolor=GRID_COLOR,
               labelcolor="#8b949e", fontsize=8)
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"${x:,.0f}"))
-    apply_style(ax, "Distribucion del monto por clase")
-    ax.set_xlabel("Monto de la transaccion")
+    apply_style(ax, "Distribución del monto por clase")
+    ax.set_xlabel("Monto de la transacción")
     ax.set_ylabel("Frecuencia")
     st.pyplot(fig)
     plt.close()
     st.markdown("""
     <div class="insight-box">
         Las distribuciones de monto entre transacciones normales y fraudulentas son
-        estadisticamente indistinguibles. Ambas tienen media cercana a $2,500 y
-        desviacion estandar similar. Esta superposicion es la causa principal de las
-        limitaciones de precision del modelo con este dataset.
+        estadísticamente indistinguibles. Ambas tienen media cercana a $2,500 y
+        desviación estándar similar. Esta superposición es la causa principal de las
+        limitaciones de precisión del modelo con este dataset.
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
 # Graficos fila 2
-st.markdown('<div class="section-title">Variables Categoricas</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Variables Categóricas</div>', unsafe_allow_html=True)
 
 g3, g4, g5 = st.columns(3, gap="large")
 
@@ -283,11 +283,11 @@ with g5:
 
 st.markdown("""
 <div class="insight-box">
-    Ningun tipo de tarjeta, canal ni dispositivo muestra una tasa de fraude significativamente
-    distinta al resto. Todas las categorias se distribuyen en proporcion casi igual entre
-    Normal y Fraude, lo que confirma el origen sintetico y aleatorio del dataset.
-    En datos reales, variables como el canal online o dispositivos moviles suelen
-    correlacionarse mas con actividad fraudulenta.
+    Ningún tipo de tarjeta, canal ni dispositivo muestra una tasa de fraude significativamente
+    distinta al resto. Todas las categorías se distribuyen en proporción casi igual entre
+    Normal y Fraude, lo que confirma el origen sintético y aleatorio del dataset.
+    En datos reales, variables como el canal online o dispositivos móviles suelen
+    correlacionarse más con actividad fraudulenta.
 </div>
 """, unsafe_allow_html=True)
 
@@ -315,6 +315,6 @@ st.markdown('<hr class="divider">', unsafe_allow_html=True)
 st.markdown("""
 <p style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:#3d444d;
    text-align:center; letter-spacing:0.1em;">
-EXPLORACION DE DATOS &mdash; SISTEMA DE DETECCION DE ANOMALIAS FINANCIERAS
+EXPLORACIÓN DE DATOS &mdash; SISTEMA DE DETECCIÓN DE ANOMALÍAS FINANCIERAS
 </p>
 """, unsafe_allow_html=True)
