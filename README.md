@@ -89,7 +89,7 @@ joblib>=1.3.2
 Posteriormente se procede a iniciar sesión en la pltaforma de [streamlit.io/cloud](https://streamlit.io/cloud) se enlanza el repositorio con el servicio se Streamlit para poder hacer el despliegue.
 ### Guía de despliegue sercivios Streamlit.
 Una vez enlazado el repositorio al servicio, se procede a realizar el despliegue correspondiente, es por esto que el primer paso a realziar es darle a la opción de "Create App", seguidamente se escoge la opción de "Deploy a public app from GitHub", finalmente nos saldrá el formulario que se logra ver en la imagen.
-![Despliegue](Despliege1.png)
+![Despliegue](Despliegue1.png)
 Se procede a escoger el repositorio correspondiente; hay que tener en cuenta cuál es la dirreción de folder de la aplicación en nuestro caso es la siguiente `app/navegation.py` también se debe especificar que rama es la que se va a desplegar de la aplicación, en nuestro caso es la `main` o la `master`, este servicio también da la posibilidad de agregar una URL en caso de que ya se tenga la url, pero es una opción electiva; finalmente se le da al botón de despliegue, es un servicio que no demora mucho en realziar el despliegue de la aplicación.
 ![Despliegue](Despliegue2.png)
 Para terminar así con esta interfaz en la plataforma del servicio, en dónde se logra ver el despliegue de la aplicación.
