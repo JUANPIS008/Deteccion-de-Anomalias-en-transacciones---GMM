@@ -137,6 +137,7 @@ La aplicacion esta dividida en tres paginas independientes que se comunican a tr
 
 
 ## Estructura del framework Streamlit
+```
 proyecto/
 ├── .venv/                  # Entorno virtual de Python
 │   ├── etc/
@@ -149,6 +150,7 @@ proyecto/
 │   ├── principal.py        # Pagina de inicio — contexto del sistema
 │   ├── datos.py            # Pagina de exploracion del dataset
 │   └── prediccion.py       # Pagina del detector de fraude
+```
 
 ## Descripcion de cada archivo
 | Archivo | Tipo | Responsabilidad |
