@@ -21,7 +21,7 @@ Este problema se clasifica como:
 - Aprendizaje no supervisado:
     No se utilizan etiquetas (fraude / no fraude), sino que el modelo aprende la estructura de los datos por sí mismo.
 
-## Enfoque con Gaussian Mixture Models (GMM)
+## Enfoque con Gaussian Mixture Models (GMM).
 Los Gaussian Mixture Models (GMM) son modelos probabilísticos que asumen que los datos provienen de una combinación de múltiples distribuciones gaussianas.
 
 Idea clave:
@@ -61,6 +61,7 @@ Las razones fueron las siguientes:
 3. Variables útiles para modelado estadístico
 
 # Guía de despliegue-Detección de anomalías en transacciones GMM.
+
 ## Plataforma seleccionada: Stream Cloud
 Esta plataforma fué seleccionada por ser gratuito, no requiere de enlaces de tarjetas y tiene integración con aplicaciones Streamlit y repositorios de GitHub. No requiere archivos de configuración adicionales como `Procfile` o `Dockerfile`.
 ### Requistios previos 
