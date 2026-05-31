@@ -146,7 +146,7 @@ cd Deteccion-de-Anomalias-en-transacciones---GMM
 
 #### Evidencia
 
-![Clonación del repositorio](imagenes/Clonar_repositorio.jpeg)
+![Clonación del repositorio](images/Clonar_repositorio.jpeg)
 
 ### Activación del entorno virtual (venv)
 
@@ -159,7 +159,7 @@ python -m venv venv
 
 #### Evidencia
 
-![Activación del entorno virtual](imagenes/Activar_venv.jpeg)
+![Activación del entorno virtual](images/Activar_venv.jpeg)
 
 ### Instalación de requerimientos
 
@@ -171,7 +171,7 @@ pip install -r requirements.txt
 
 #### Evidencia
 
-![Instalación de requerimientos](imagenes/Instalar_requerimientos.jpeg)
+![Instalación de requerimientos](images/Instalar_requerimientos.jpeg)
 
 ---
 
