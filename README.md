@@ -1,4 +1,4 @@
-# Detección-de-Anomalías-en-transacciones---GMM.
+# Detección de anomalías en transacciones GMM.
 
 ## Descripción del proyecto.
 En sistemas financieros, plataformas de pago y comercio electrónico, se generan grandes volúmenes de transacciones diariamente. Dentro de este flujo masivo de datos, pueden existir transacciones fraudulentas o comportamientos inusuales que representan riesgos económicos y de seguridad.
@@ -85,14 +85,13 @@ streamlit>=1.28.0
 matplotlib>=3.7.2
 seaborn>=0.12.2
 joblib>=1.3.2
-
 ```
 Posteriormente se procede a iniciar sesión en la pltaforma de [streamlit.io/cloud](https://streamlit.io/cloud) se enlanza el repositorio con el servicio se Streamlit para poder hacer el despliegue.
 ### Guía de despliegue sercivios Streamlit.
 Una vez enlazado el repositorio al servicio, se procede a realizar el despliegue correspondiente, es por esto que el primer paso a realziar es darle a la opción de "Create App", seguidamente se escoge la opción de "Deploy a public app from GitHub", finalmente nos saldrá el formulario que se logra ver en la imagen.
-![Despliegue1](image.png)
+![Despliegue](Despliege1.png)
 Se procede a escoger el repositorio correspondiente; hay que tener en cuenta cuál es la dirreción de folder de la aplicación en nuestro caso es la siguiente `app/navegation.py` también se debe especificar que rama es la que se va a desplegar de la aplicación, en nuestro caso es la `main` o la `master`, este servicio también da la posibilidad de agregar una URL en caso de que ya se tenga la url, pero es una opción electiva; finalmente se le da al botón de despliegue, es un servicio que no demora mucho en realziar el despliegue de la aplicación.
-![Despliegue2](image-1.png)
+![Despliegue](Despliegue2.png)
 Para terminar así con esta interfaz en la plataforma del servicio, en dónde se logra ver el despliegue de la aplicación.
 ## Justificación de elección.
 Se eligió Stream Cloud como plataforma principal debido que como equipo tuvimos en cuenta el hecho de que es gratuita y no requiere anclar niguna tarjeta para poder obtener sus servicios, a diferencia de de AWS, Azure y Google Cloud Platform plataformas las cuáles exigen tarjeta para poder usar los tier gratuitos. Al estar diseñada exclusivamente para apliaciones Streamlit, no requiere de un archivo de configuración adicional como lo es Procfile (Heroku) o Dockerfile (Google Cloud Platform), reduciendo así la complejidad operativa. La integración nativa con GitHub permite que se pueda mantener un flujo de trabajo continuo donde cada mejora que se le haga al código se verá reflejado automáticamente. 
