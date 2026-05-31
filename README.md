@@ -784,6 +784,27 @@ Indica que el escalador esta recibiendo datos en un rango muy distinto al que vi
 
 El modelo recibe columnas con nombres distintos a los que tuvo durante el entrenamiento. Verificar que los nombres de las columnas en `X_input` coinciden exactamente con `gmm_model.feature_names_in_`, incluyendo mayusculas, espacios y parentesis.
 
+## Demostracion del funcionamiento de la pagina web
+
+### 1. Pagina de la prediccion de transacciones con anomalias
+![Pagina de detector de fraudes](images/dectector_fraudes.png)
+![Pagina de detector de fraudes](images/dectector_fraudes_2.png)
+![Pagina de detector de fraudes](images/dectector_fraudes_3.png)
+
+### 2. Pagina de la informaticas acerca del problema y solucion
+![Pagina de informativa](images/informativo_1.png)
+![Pagina de informativa](images/informativo_2.png)
+![Pagina de informativa](images/informativo_3.png)
+
+### 3. Exploracion del dataset seleccionado
+![Pagina de exploracion de datos](images/exploracion_datos.png)
+![Pagina de exploracion de datos](images/exploracion_datos_2.png)
+![Pagina de exploracion de datos](images/exploracion_datos_3.png)
+![Pagina de exploracion de datos](images/exploracion_datos_4.png)
+
+### 4. Funcionamiento de la prediccion
+![Resultado de la prediccion](images/resultado_prediccion.png)
+
 --- 
 # Guía de despliegue-Detección de anomalías en transacciones GMM.
 
