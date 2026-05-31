@@ -631,6 +631,7 @@ Detección de anomalías en transacciones GMM/
 
 ```
 | Comando | Descripción |
+---|---|
 | `Respositorio` | JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM |
 | `Branch` | main |
 | `Main File Path` | app/navegation.py |
@@ -640,6 +641,7 @@ Detección de anomalías en transacciones GMM/
 Se cerciora que todos los campos esten completos y bien digilenciados y se procede a desplegar la aplicación.
 ```
 | Recurso | URL |
+---|---|
 | `Repositorio de GitHub` | [Deteccion-de-Anomalias-en-transacciones---GMM](https://github.com/JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM.git) |
 | `Aplicaión` | [gmm-fraud-detector](https://gmm-fraud-detector.streamlit.app/) |
 ```
