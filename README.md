@@ -1,5 +1,6 @@
 # Detección de anomalías en transacciones GMM
-
+# URLs de proyecto
+- [Aplicaión](https://gmm-fraud-detector.streamlit.app/)
 ## Descripción del proyecto.
 En sistemas financieros, plataformas de pago y comercio electrónico, se generan grandes volúmenes de transacciones diariamente. Dentro de este flujo masivo de datos, pueden existir transacciones fraudulentas o comportamientos inusuales que representan riesgos económicos y de seguridad.
 
@@ -96,7 +97,6 @@ Detección de anomalías en transacciones GMM/
 
 Se cerciora que todos los campos esten completos y bien digilenciados y se procede a desplegar la aplicación.
 ```
-## URLs del proyecto 
 | Recurso | URL |
 | `Repositorio de GitHub` | [Deteccion-de-Anomalias-en-transacciones---GMM](https://github.com/JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM.git) |
 | `Aplicaión` | [gmm-fraud-detector](https://gmm-fraud-detector.streamlit.app/) |
