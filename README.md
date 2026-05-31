@@ -189,16 +189,20 @@ pip install -r requirements.txt
 ## 4. Navegacion entre Paginas — `navegation.py`
 
 ```python
+import streamlit as st
+ 
 pages = {
-    "Sistema": [
-        st.Page("principal.py", title="Inicio"),
-    ],
-    "Analisis": [
-        st.Page("datos.py", title="Exploracion de Datos"),
+    "Análisis": [
         st.Page("prediccion.py", title="Detector de Fraude"),
     ],
-}
 
+    "Información": [
+        st.Page("principal.py", title="Información del Proyecto"),
+        st.Page("datos.py", title="Exploración de Datos"),
+    ],
+    
+}
+ 
 pg = st.navigation(pages)
 pg.run()
 ```
@@ -207,8 +211,9 @@ pg.run()
 
 Las paginas se organizan en dos secciones:
 
-- **Sistema** contiene la pagina de inicio, que actua como portada del proyecto.
-- **Analisis** agrupa las dos paginas funcionales: la exploracion del dataset y el detector de fraude.
+- **Analisis** Contiene la pagina principal donde se tendra el formulario para la prediccion
+- **Informacion** contiene la pagina de principa;, que actua como portada del proyecto, al igual contiene la pagina de datos donde se mostrara caracteristicas del entrenamiento.
+
 
 Cuando el usuario selecciona una pagina desde el menu, Streamlit ejecuta el archivo `.py` correspondiente en el mismo contexto de sesion, preservando el estado de los modelos cargados en cache.
 
@@ -305,6 +310,8 @@ Una tabla interactiva con los primeros 100 registros del dataset, mostrando las 
 ### Proposito
 Esta es la pagina principal funcional del sistema. Permite al usuario ingresar los datos de una transaccion financiera y obtener en tiempo real una clasificacion del modelo GMM, junto con el log-score de densidad, el nivel de riesgo y una explicacion del resultado.
 
+A su vez muestra como se usa el formulario y como diligenciarlo, asi mismo contiene el origen de los datos y la limitacion del modelo.
+
 ### Estructura de la pagina
 
 ```
@@ -381,7 +388,6 @@ La fecha y la hora se ingresan como campos separados para mayor claridad, pero i
 ---
 
 ## 8. Flujo de Prediccion Paso a Paso
-
 Cuando el usuario presiona "Analizar Transaccion", se ejecuta el siguiente pipeline interno:
 
 ### Paso 1 — Conversion de fecha y hora a timestamp Unix
