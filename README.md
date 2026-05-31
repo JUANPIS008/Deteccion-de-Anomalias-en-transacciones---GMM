@@ -86,15 +86,18 @@ Detección de anomalías en transacciones GMM/
 - Se procede a crear la nueva app en la platforma.
 - Se llena el requerido formulario por la plataforma.
 
-
+```
 | Comando | Descripción |
 | `Respositorio` | JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM |
 | `Branch` | main |
 | `Main File Path` | app/navegation.py |
 | `App URL (opcinal)` | gmm-fraud-detector |
+```
 
 Se cerciora que todos los campos esten completos y bien digilenciados y se procede a desplegar la aplicación.
+```
 ## URLs del proyecto 
 | Recurso | URL |
 | `Repositorio de GitHub` | [Deteccion-de-Anomalias-en-transacciones---GMM](https://github.com/JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM.git) |
 | `Aplicaión` | [gmm-fraud-detector](https://gmm-fraud-detector.streamlit.app/) |
+```
