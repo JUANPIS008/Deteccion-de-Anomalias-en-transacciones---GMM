@@ -1,7 +1,63 @@
 # Detección de anomalías en transacciones GMM
-# URLs de proyecto
-- [Aplicaión](https://gmm-fraud-detector.streamlit.app/)
 
+## Indice
+1. [URLs del proyecto](#urls-de-proyecto)
+
+--- 
+2. [Descripción del proyecto](#descripción-del-proyecto)
+   - 2.1 [Tipo de problema](#tipo-de-problema)
+   - 2.2 [Enfoque con Gaussian Mixture Models (GMM)](#enfoque-con-gaussian-mixture-models-gmm)
+   - 2.3 [Selección del dataset](#seleccion-del-dataset)
+     - 2.3.1 [Ventajas](#ventajas)
+     - 2.3.2 [Desventajas](#desventajas)
+   - 2.4 [¿Por qué este dataset?](#porque-este-dataset)
+   - 2.5 [Definición de variables](#definicion-de-variables)
+
+---
+
+3. [Descripción del modelo Gaussian Mixture Model (GMM)](#descripción-del-modelo-gaussian-mixture-model-gmm)
+   - 3.1 [Configuración del espacio de trabajo](#configuración-del-espacio-de-trabajo)
+     - 3.1.1 [Clonación del repositorio](#clonación-del-repositorio)
+     - 3.1.2 [Activación del entorno virtual (venv)](#activación-del-entorno-virtual-venv)
+     - 3.1.3 [Instalación de requerimientos](#instalación-de-requerimientos)
+   - 3.2 [Tareas de análisis y modelado realizadas](#tareas-de-análisis-y-modelado-realizadas)
+     - 3.2.1 [Tarea #4: Exploración de datos (EDA)](#tarea-4-exploración-de-datos-eda)
+     - 3.2.2 [Tarea #5: Preprocesamiento](#tarea-5-preprocesamiento)
+     - 3.2.3 [Tarea #6: División de datos](#tarea-6-división-de-datos)
+     - 3.2.4 [Tarea #7: Entrenamiento del modelo](#tarea-7-entrenamiento-del-modelo)
+     - 3.2.5 [Tarea #8: Evaluación del modelo](#tarea-8-evaluación-del-modelo)
+     - 3.2.6 [Tarea #9: Detección de anomalías](#tarea-9-detección-de-anomalías)
+     - 3.2.7 [Tarea #10: Serialización del modelo](#tarea-10-serialización-del-modelo)
+     - 3.2.8 [Tarea #18: Documentación (README.md)](#tarea-18-documentación-readmemd)
+   - 3.3 [Estructura del proyecto (área técnica)](#estructura-del-proyecto-área-técnica)
+   - 3.4 [Resultado final](#resultado-final)
+
+---
+
+4. [Descripción del framework Streamlit](#descripcion-del-framework-streamlit)
+   - 4.1 [Estructura del framework Streamlit](#estructura-del-framework-streamlit)
+   - 4.2 [Descripción de cada archivo](#descripción-de-cada-archivo)
+   - 4.3 [Tecnologías y dependencias](#tecnologías-y-dependencias)
+   - 4.4 [Navegación entre páginas — `navegation.py`](#navegación-entre-páginas--navegationpy)
+   - 4.5 [Página principal — `principal.py`](#página-principal--principalpy)
+   - 4.6 [Página de exploración de datos — `datos.py`](#página-de-exploración-de-datos--datospy)
+   - 4.7 [Página del detector de fraude — `prediccion.py`](#página-del-detector-de-fraude--prediccionpy)
+   - 4.8 [Flujo de predicción paso a paso](#flujo-de-predicción-paso-a-paso)
+   - 4.9 [Configuración del umbral](#configuración-del-umbral)
+   - 4.10 [Diseño visual y estilos](#diseño-visual-y-estilos)
+   - 4.11 [Cómo ejecutar la aplicación](#cómo-ejecutar-la-aplicación)
+   - 4.12 [Errores frecuentes y soluciones](#errores-frecuentes-y-soluciones)
+   - 4.13 [Demostración del funcionamiento de la página web](#demostración-del-funcionamiento-de-la-página-web)
+
+---
+
+5. [Guía de despliegue](#guía-de-despliegue-detección-de-anomalías-en-transacciones-gmm)
+   - 5.1 [Plataforma seleccionada: Streamlit Cloud](#plataforma-seleccionada-stream-cloud)
+   - 5.2 [Requisitos previos](#requisitos-previos)
+   - 5.3 [Conectar el repositorio a Streamlit Cloud](#conectar-el-repositorio-a-streamlit-cloud)
+
+# URLs de proyecto
+- [Pagina funcional prediccion de fraude](https://gmm-fraud-detector.streamlit.app/)
 
 # Descripción del proyecto.
 En sistemas financieros, plataformas de pago y comercio electrónico, se generan grandes volúmenes de transacciones diariamente. Dentro de este flujo masivo de datos, pueden existir transacciones fraudulentas o comportamientos inusuales que representan riesgos económicos y de seguridad.
@@ -309,7 +365,8 @@ requirements.txt
 Se desarrolló un sistema de detección de anomalías basado en gaussian mixture models (gmm), capaz de identificar patrones atípicos en transacciones financieras mediante modelado probabilístico. El modelo fue entrenado, evaluado y serializado exitosamente, quedando listo para su integración en una aplicación web orientada a la detección de posibles fraudes.
 
 ---
-# Descripcion del framework Streamlit
+
+# Descripcion del framework Streamlit 
 Fue construida con **Streamlit**, un framework de Python orientado al desarrollo rapido de interfaces de datos e inteligencia artificial. Su proposito principal es permitir que cualquier persona, sin necesidad de conocimientos tecnicos avanzados, pueda analizar transacciones financieras y determinar si su comportamiento es normal o potencialmente fraudulento.
 
 El sistema esta fundamentado en un modelo de **Mezcla de Gaussianas (Gaussian Mixture Model — GMM)**, una tecnica de aprendizaje automatico no supervisado que aprende la distribucion estadistica del comportamiento normal de las transacciones. Cuando se presenta una nueva transaccion, el modelo calcula que tan probable es que pertenezca a esa distribucion aprendida. Si la probabilidad es muy baja, la transaccion se considera anomala.
