@@ -124,7 +124,189 @@ Las razones fueron las siguientes:
     Importancia: Permite detectar
     - Accesos desde dispositivos no habituales.
     - Cambios inesperados de comportamiento.
+---
+# Descripción del modelo Gaussian Mixture Model (GMM)
 
+Este componente del proyecto documenta el flujo de trabajo integral para la detección de fraudes financieros mediante gaussian mixture models (gmm). El desarrollo abarca desde la preparación del entorno de trabajo hasta la generación de los artefactos del modelo para producción.
+
+---
+
+## Configuración del espacio de trabajo
+
+Para asegurar la reproducibilidad del proyecto, se siguieron estos pasos de configuración inicial.
+
+### Clonación del repositorio
+
+Obtención del código fuente y estructura base:
+
+```bash
+git clone https://github.com/JUANPIS008/Deteccion-de-Anomalias-en-transacciones---GMM
+cd Deteccion-de-Anomalias-en-transacciones---GMM
+```
+
+#### Evidencia
+
+![Clonación del repositorio](imagenes/Clonar_repositorio.jpeg)
+
+### Activación del entorno virtual (venv)
+
+Aislamiento de dependencias para evitar conflictos de sistema:
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+#### Evidencia
+
+![Activación del entorno virtual](imagenes/Activar_venv.jpeg)
+
+### Instalación de requerimientos
+
+Instalación de las librerías necesarias definidas en `requirements.txt` (pandas, scikit-learn, joblib, entre otras):
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Evidencia
+
+![Instalación de requerimientos](imagenes/Instalar_requerimientos.jpeg)
+
+---
+
+## Tareas de análisis y modelado realizadas
+
+Según el backlog de actividades, se completaron satisfactoriamente las siguientes tareas.
+
+### Tarea #4: Exploración de datos (eda)
+
+Se analizó el dataset `credit_card_fraud.csv`, compuesto por 8.000 registros.
+
+#### Visualización
+
+Se implementaron boxplots con escala logarítmica para identificar la distribución de montos en transacciones normales frente a sospechosas.
+
+#### Correlación
+
+Se generó una matriz de correlación para entender la interdependencia de las 20 variables originales.
+
+---
+
+### Tarea #5: Preprocesamiento
+
+#### Limpieza
+
+Se detectaron y eliminaron 6.053 registros con valores nulos, garantizando la integridad de los datos para el modelo.
+
+#### Estandarización
+
+Se utilizó `StandardScaler` para normalizar las columnas `Amount` y `Time`, logrando una media de 0.00 y una desviación estándar de 1.00.
+
+---
+
+### Tarea #6: División de datos
+
+Se realizó una partición estratificada del dataset para mantener el balance de las etiquetas de fraude.
+
+| Conjunto | Registros |
+|-----------|-----------:|
+| Entrenamiento | 2.391 |
+| Prueba | 598 |
+
+---
+
+### Tarea #7: Entrenamiento del modelo
+
+Se implementó un modelo gaussian mixture model (gmm) con 2 componentes, entrenado exclusivamente con transacciones normales para modelar el comportamiento legítimo.
+
+#### Resultado
+
+- Convergencia exitosa.
+- Log-likelihood promedio: **-15.0257**.
+
+---
+
+### Tarea #8: Evaluación del modelo
+
+Se validó la calidad del agrupamiento mediante el índice silhouette.
+
+| Métrica | Resultado |
+|----------|-----------:|
+| Silhouette score | 0.5085 |
+
+El resultado fue clasificado como aceptable al superar el umbral mínimo de 0.4 exigido.
+
+---
+
+### Tarea #9: Detección de anomalías
+
+Se estableció un umbral estadístico basado en el percentil 5 de las puntuaciones de densidad logarítmica.
+
+| Parámetro | Valor |
+|------------|--------:|
+| Umbral calculado | -16.4611 |
+
+#### Métricas de clasificación
+
+| Métrica | Valor |
+|----------|--------:|
+| Recall (transacciones normales) | 0.96 |
+| Precisión (fraudes) | 0.57 |
+
+---
+
+### Tarea #10: Serialización del modelo
+
+Se persistieron los objetos finales en la carpeta `models/` para su uso en la aplicación web.
+
+| Archivo | Descripción |
+|----------|-------------|
+| scaler.pkl | Escalador estandarizado (0.88 kb) |
+| modelo_gmm.pkl | Modelo gmm entrenado (2.16 kb) |
+
+---
+
+### Tarea #18: Documentación (readme.md)
+
+Generación de este documento técnico que detalla el ciclo de vida del entrenamiento y los resultados obtenidos.
+
+---
+
+## Estructura del proyecto (área técnica)
+
+```text
+data/
+└── raw/
+
+imagenes/
+├── Activar_venv.jpeg
+├── Clonar_repositorio.jpeg
+└── Instalar_requerimientos.jpeg
+
+notebooks/
+└── 01_training.ipynb
+
+models/
+├── scaler.pkl
+└── modelo_gmm.pkl
+
+requirements.txt
+```
+
+### Descripción de directorios
+
+- `data/raw/`: datos originales utilizados para el análisis y entrenamiento.
+- `imagenes/`: evidencias del proceso de configuración del entorno.
+- `notebooks/01_training.ipynb`: proceso de entrenamiento documentado paso a paso.
+- `models/`: artefactos serializados del modelo en formato `.pkl`.
+- `requirements.txt`: lista de dependencias necesarias para ejecutar el proyecto.
+
+---
+
+## Resultado final
+
+Se desarrolló un sistema de detección de anomalías basado en gaussian mixture models (gmm), capaz de identificar patrones atípicos en transacciones financieras mediante modelado probabilístico. El modelo fue entrenado, evaluado y serializado exitosamente, quedando listo para su integración en una aplicación web orientada a la detección de posibles fraudes.
 ---
 # Descripcion del framework Streamlit
 Fue construida con **Streamlit**, un framework de Python orientado al desarrollo rapido de interfaces de datos e inteligencia artificial. Su proposito principal es permitir que cualquier persona, sin necesidad de conocimientos tecnicos avanzados, pueda analizar transacciones financieras y determinar si su comportamiento es normal o potencialmente fraudulento.
