@@ -307,6 +307,7 @@ requirements.txt
 ## Resultado final
 
 Se desarrolló un sistema de detección de anomalías basado en gaussian mixture models (gmm), capaz de identificar patrones atípicos en transacciones financieras mediante modelado probabilístico. El modelo fue entrenado, evaluado y serializado exitosamente, quedando listo para su integración en una aplicación web orientada a la detección de posibles fraudes.
+
 ---
 # Descripcion del framework Streamlit
 Fue construida con **Streamlit**, un framework de Python orientado al desarrollo rapido de interfaces de datos e inteligencia artificial. Su proposito principal es permitir que cualquier persona, sin necesidad de conocimientos tecnicos avanzados, pueda analizar transacciones financieras y determinar si su comportamiento es normal o potencialmente fraudulento.
