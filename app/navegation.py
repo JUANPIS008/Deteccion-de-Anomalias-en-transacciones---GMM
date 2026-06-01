@@ -1,13 +1,13 @@
 import streamlit as st
  
 pages = {
-    "Analisis": [
+    "Análisis": [
         st.Page("prediccion.py", title="Detector de Fraude"),
     ],
 
-    "Informacion": [
-        st.Page("principal.py", title="Informacion del Proyecto"),
-        st.Page("datos.py", title="Exploracion de Datos"),
+    "Información": [
+        st.Page("principal.py", title="Información del Proyecto"),
+        st.Page("datos.py", title="Exploración de Datos"),
     ],
     
 }
